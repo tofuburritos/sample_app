@@ -1,0 +1,17 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="navbar-inner">
+    <div class="container">
+      <%= link_to "RSMC Stationery", home_path, id: "logo" %>
+      <div class="kancel_logo">
+        <%= image_tag("kancel_logo.jpg", alt: "Stationery")  %>
+      </div>
+      <nav>
+        <ul class="nav pull-right">
+          <li><%=link_to "Личный Кабинет", office_path %></li>
+          <li><%=link_to "Помощь", help_path %></li>
+          <li><%=link_to "Выйти", exit_path %></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>

@@ -1,15 +1,14 @@
-<% provide(:title, 'Help') %>
-<div class="TofuShoperHead">
-  <h1>Справка</h1>
-</div>
-  <div class="container">
-    <div class="button">
-      <h3>Как работать с приложением</h3>
+  <% provide(:title, 'Help') %>
+  <div class="WelcomeMessage">
+    <h1>Помощь</h1>
+  </div>
+  <div class="center hero-unit">
+    <div class="linkbox">
+      <%= link_to "Как работать с приложением",  'formapp_path',
+      class: "btn btn-large btn-info btn-block" %>
     </div>
-    <div class="button">
-      <h3>Как работает приложение</h3>
-    </div>
-    <div class="button">
-      <h3>Сообщить об ошибке</h3>
+    <div class="linkbox">
+    <%= link_to "Сообщить об ошибке",           'readapp_path',
+    class: "btn btn-large btn-danger btn-block" %>
     </div>
   </div>
