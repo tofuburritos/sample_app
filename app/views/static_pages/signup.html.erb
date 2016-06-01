@@ -1,17 +1,23 @@
-<% provide(:title, 'New User') %>
-<div class="WelcomeMessage">
-  <h1>Создание нового пользователя</h1>
-</div>
-<p>
-  Login
-</p>
-<p>
-  Password
-</p>
+<%= provide(:title, 'New User') %>
+<h1>Создание Нового Пользователя</h1>
 
-  </div>
-  <div class="linkbox">
-  <%= link_to "Создать пользователя",               call_path,
-  class: "btn btn-large btn-success btn-block" %>
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@user) do |f| %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name  %>
+
+    <%= f.label :email  %>
+    <%= f.text_field :email  %>
+
+    <%= f.label :password  %>
+    <%= f.text_field :password %>
+
+    <%= f.label :password_confirmation, "Confirmation" %>
+    <%= f.password_field :password_confirmation  %>
+
+    <%= f.submit "Создать нового пользователя", class: "btn btn-large btn-danger"  %>
+    <% end %>
   </div>
 </div>
