@@ -6,10 +6,15 @@
         <%= image_tag("kancel_logo.jpg", alt: "Stationery")  %>
       </div>
       <nav>
+
         <ul class="nav pull-right">
+            <% if signed_in? %>
           <li><%=link_to "Личный Кабинет", office_path %></li>
           <li><%=link_to "Помощь", help_path %></li>
-          <li><%=link_to "Выйти", exit_path %></li>
+          <li><%=link_to "Выйти", signout_path, method: "delete" %></li>
+          <% else %>
+          <li><%= link_to "Войти", root_path %></li>
+          <% end %>
         </ul>
       </nav>
     </div>
