@@ -1,0 +1,29 @@
+<% provide(:title, "Edit") %>
+<h1>Редактирование Профиля</h1>
+
+<div class="row">
+  <div class="span5 offset4">
+    <div class="gravatar">
+      <%= gravatar_for @user %>
+      <a href="http://gravatar.com/emails">change</a>
+    </div>
+    <%= form_for(@user) do |f| %>
+      <%= render 'shared/error_messages' %>
+
+      <%= f.label :name, "Логин" %>
+      <%= f.text_field :name %>
+
+      <%= f.label :email, "@mail" %>
+      <%= f.text_field :email %>
+
+      <%= f.label :password, "Пароль" %>
+      <%= f.password_field :password %>
+
+      <%= f.label :password_confirmation, "Подтверждение Пароля" %>
+      <%= f.password_field :password_confirmation %>
+
+      <%= f.submit "Сохранить изменения", class: "btn btn-large btn-success" %>
+    <% end %>
+  </div>
+  <%= render 'layouts/navbackhome' %>
+</div>

@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  before_action :signed_in_user, only: [:edit, :update]
+  before_action :correct_user,   only: [:edit, :update]
+
   def show
     @user = User.find(params[:id])
   end
@@ -17,6 +20,18 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @user.update_attributes(user_params)
+      flash[:success] = "Профиль успешно изменен"
+      redirect_to @user
+    else
+      render 'edit'
+    end
+  end
+
   private
 
   def user_params
@@ -24,4 +39,12 @@ class UsersController < ApplicationController
                                  :password_confirmation)
   end
 
+  def signed_in_user
+    redirect_to signin_url, notice: "Пожалуйста выполните вход" unless signed_in?
+  end
+
+  def correct_user
+    @user = User.find(1)
+    redirect_to(root_url) unless current_user?(@user)
+  end
 end
