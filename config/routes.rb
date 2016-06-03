@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+
+  # root 'static_pages#home' #Рут - страничка авторизации.
+  root 'sessions#new'
   #Sessions Block
-  root 'sessions#new' #Рут - страничка авторизации.
+  # match '/signin',  to: 'sessions#new',         via:    'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
   #Static Pages Block
   match '/home',    to: 'static_pages#home',    via:    'get'
