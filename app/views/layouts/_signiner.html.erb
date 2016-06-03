@@ -1,0 +1,19 @@
+<% provide(:title, 'Welcome') %>
+<div class="WelcomeMessage">
+  <h1>Добро пожаловать в Tofuonery!</h1>
+  <h2>Пожалуйста, введите свои учетные данные и нажмите кнопку "Войти".</h2>
+</div>
+<div class="row">
+  <div class="span5 offset3">
+    <%= form_for(:session, url: sessions_path) do |f| %>
+
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+
+    <%= f.submit "Войти", class: "btn btn-large btn-success" %>
+    <% end %>
+  </div>
+</div>

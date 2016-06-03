@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :correct_user,   only: [:edit, :update]
 
   def show
-    @user = User.find(params[:id])
+    @user = User.friendly.find(params[:id])
   end
 
   def new
@@ -21,6 +21,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.friendly.find(params[:id])
   end
 
   def update
@@ -39,12 +40,14 @@ class UsersController < ApplicationController
                                  :password_confirmation)
   end
 
+  # Before filters
+
   def signed_in_user
     redirect_to signin_url, notice: "Пожалуйста выполните вход" unless signed_in?
   end
 
   def correct_user
-    @user = User.find_by(params[:id])
+    @user = User.friendly.find(params[:id])
     redirect_to(root_url) unless current_user?(@user)
   end
 end
