@@ -6,6 +6,7 @@ html {
 }
 
 body {
+  background-color: #DBDBCE;
   padding-top: 200px;
 }
 
@@ -177,7 +178,8 @@ input {
 }
 .footer {
   background-color: #999;
-  padding-left: 10px;
+  padding-bottom: 1px;
+  margin-bottom: 10px;
 }
 /* Users index */
 
@@ -192,4 +194,16 @@ input {
       border-bottom: 1px solid gray;
     }
   }
+}
+
+.btn-info {
+  background-color: #8F8F68;
+}
+
+.btn-success {
+  background-color: #277A27;
+}
+
+.btn-danger {
+  background-color: #912C42;
 }
