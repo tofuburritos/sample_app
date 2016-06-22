@@ -1,6 +1,6 @@
 <%= provide(:title, 'New User') %>
 <h1>Создание Нового Пользователя</h1>
-
+<% if current_user.admin? %>
 <div class="row">
   <div class="span5 offset3">
     <%= form_for(@user) do |f| %>
@@ -22,3 +22,12 @@
     <% end %>
   </div>
 </div>
+<% else %>
+<div class="signup-error">
+  <%= image_tag("hey-you.jpg", alt: "Hey You!", size: "250x168")  %>
+  <br> <br>
+  ВАМ НЕ ХВАТАЕТ ПРАВ ДЛЯ СОЗДАНИЯ НОВОГО ПОЛЬЗОВАТЕЛЯ, <br><br>
+  ПОЖАЛУЙСТА, ОБРАТИТЕСЬ К АДМИНИСТРАТОРУ САЙТА ИЛИ <br><br>
+  ПРЕКРАТИТЕ ПОПЫТКИ СОЗДАНИЯ НОВОГО ПОЛЬЗОВАТЕЛЯ <br><br>
+</div>
+<% end %>
